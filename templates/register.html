@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Registration</title>
+</head>
+<body>
+<form action="/register" method="POST">
+    <p>Email: <input type="email" name="email"></p>
+    <P>Password: <input type="password" name="password" id="password" required></p>
+    <p>First Name: <input type="text" name="firstName"></p>
+    <p>Last Name: <input type="text" name="lastName"></p>
+    <p>Street: <input type="text" name="street"></p>
+    <p>City: <input type="text" name="city"></p>
+    <p>State: <input type="text" name="state"></p>
+    <p>Zipcode: <input type="text" name="zipcode"></p>
+    <p>Phone Number: <input type="text" name="phone"></p>
+
+    <p><input type="submit" value="Register"></p>
+
+    <a href="{{url_for('login')}}">Login here</a>
+</form>
+</body>
+</html>
+

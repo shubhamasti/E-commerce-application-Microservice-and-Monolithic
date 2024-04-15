@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Welcome</title>
+</head>
+<body>
+<div id="title">
+	<a href="{{url_for('home')}}">
+		<img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" />
+	</a>
+	<form method="POST">
+		<input id="searchBox" type="text" name="searchQuery">
+		<input id="searchButton" type="submit" value="Search">
+	</form>
+
+	<div class="dropdown">
+		<div class="dropdown-content">
+			<a href="/account/orders">Your orders</a>
+			<hr>
+		</div>
+	</div>
+	<div id="kart">
+		<a class="link" href="/cart">
+			<img src="{{url_for('static', filename='images/shoppingCart.png')}}" id="cartIcon" />
+			CART {{noOfItems}}
+		</a>
+	</div>
+</div>
+<div class="display">
+	<div class="displayCategory">
+		<h2>Top products in {{ search }}</h2>
+		<ul>
+			{% for row in products %}
+			<li><a href="{{ url_for('productDescription', prod_id=row[0]) }}">{{row[1]}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+</body>
