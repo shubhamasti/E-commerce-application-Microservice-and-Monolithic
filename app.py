@@ -94,12 +94,44 @@ def productDescription(prod_id):
     
     return render_template('productDescription.html', data=info)
 
-@app.route('/cart')
+@app.route('/cart', methods=['GET', 'POST'])
 def cart():
     email = session['email']
     items = get_cart_items(email)
     subtotal = round(sum([item[-1] for item in items]), 2)
+    
+    if request.method == 'POST':
+        subtotal = request.form['subtotal']
+        return redirect(url_for('checkout', subtotal=subtotal))
+    
     return render_template('cart.html', products=items, subtotal=subtotal)
+
+@app.route('/checkout', methods=['GET', 'POST'])
+def checkout():
+    subtotal = float(request.args.get('subtotal'))
+    email = session['email']
+    tax = round(subtotal * 0.06, 2)
+    total = round(subtotal + tax, 2)
+    
+    if request.method == 'POST':
+        # clear cart
+        # add bill to database
+        insert_bill(email, subtotal, tax, total)
+        clear_cart(email)
+        return redirect(url_for('thankyou'))
+    
+    return render_template('checkout.html', account=email, costs=[subtotal, tax, total])
+
+@app.route('/thankyou')
+def thankyou():
+    return render_template('thankyou.html')
+
+@app.route('/bills')
+def bills():
+    email = session['email']
+    bills = get_bills(email)
+    return render_template('bills.html', bills=bills)
+
 
 if __name__ == '__main__':
     app.run(port=8000, debug=True)

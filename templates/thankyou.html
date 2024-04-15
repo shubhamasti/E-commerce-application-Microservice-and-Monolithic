@@ -13,12 +13,6 @@
 		<input id="searchButton" type="submit" value="Search">
 	</form>
 
-	<div class="dropdown">
-		<div class="dropdown-content">
-			<a href="{{ url_for('bills') }}">Your bills</a>
-			<hr>
-		</div>
-	</div>
 	<div id="kart">
 		<a class="link" href="/cart">
 			<img src="{{url_for('static', filename='images/shoppingCart.png')}}" id="cartIcon" />
@@ -28,12 +22,8 @@
 </div>
 <div class="display">
 	<div class="displayCategory">
-		<h2>Top products </h2>
-		<ul>
-			{% for row in top_prod %}
-			<li><a href="{{ url_for('productDescription', prod_id=row[0]) }}">{{row[1]}}</a></li>
-			{% endfor %}
-		</ul>
+		<h2>Thank you for shopping with us! </h2>
+        <h4><a href="{{url_for('home')}}">Browse more</a></h4>
 	</div>
 </div>
 </body>

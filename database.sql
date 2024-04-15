@@ -29,3 +29,13 @@ CREATE TABLE IF NOT EXISTS cart (
     FOREIGN KEY(email) REFERENCES users(email),
     FOREIGN KEY(productId) REFERENCES products(productId)
 );
+
+CREATE TABLE IF NOT EXISTS bill(
+    billId INT PRIMARY KEY,
+    email VARCHAR(30),
+    subtotal FLOAT,
+    tax FLOAT,
+    total FLOAT,
+    date DATE,
+    FOREIGN KEY(email) REFERENCES users(email)
+);

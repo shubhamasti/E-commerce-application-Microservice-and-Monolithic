@@ -1,12 +1,50 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+
 <head>
-    <title>Welcome</title>
+    <meta charset="utf-8">
+
+    <title>ECommerce - Billing</title>
+
 </head>
-    <body>
-		<h1>
-            Thank you for checking out!
-		</h1>
-		<a href=/> Return </a>
-    </body>
+<body>
+    <div id="title">
+        <a href="/">
+        <img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" />
+        </a>
+    
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <a href="{{url_for('home')}}">Home</a>
+                <a href="{{url_for('bills')}}">Your bills</a>
+            </div>
+    </div>
+    <div class="container">
+        <!-- <h1>Billing Information</h1> -->
+        <table>
+            <tr>
+                <th>Account</th>
+                <th>Cost</th>
+                <th>Tax</th>
+                <th>Final Amount</th>
+                <th>Pay Now</th>
+            </tr>
+            <tr>
+                <td>{{ account }}</td>
+                <td>{{ costs[0] }}</td>
+                <td>{{ costs[3] }}</td>
+                <td>{{ costs[2] }}</td>
+                <td>
+                  <form method="POST">
+                    <input type="submit" value="Pay Now">
+                  </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    </div>
+    </div>
+    </div>
+</body>
 </html>

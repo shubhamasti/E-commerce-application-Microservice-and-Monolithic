@@ -4,28 +4,27 @@
 <title>Product Description</title>
 </head>
 <body>
+
 <div id="title">
-	<a href="{{url_for('home')}}">
-		<img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" />
+	<a href="/">
+	<img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" />
 	</a>
+
+	<div class="dropdown">
+		<div class="dropdown-content">
+			<a href="{{url_for('home')}}">Home</a>
+			<a href="{{url_for('bills')}}">Your bills</a>
+		</div>
+</div>
+
+<div id="search">
+	<h3>Search</h3	>	
 	<form>
 		<input id="searchBox" type="text" name="searchQuery">
 		<input id="searchButton" type="submit" value="Search">
 	</form>
-
-	<div class="dropdown">
-		<div class="dropdown-content">
-			<a href="/account/orders">Your orders</a>
-			<hr>
-		</div>
-	</div>
-	<div id="kart">
-		<a class="link" href="/cart">
-			<img src="{{url_for('static', filename='images/shoppingCart.png')}}" id="cartIcon" />
-			CART {{noOfItems}}
-		</a>
-	</div>
 </div>
+	
 <div id="display">
 	<div id="productName">
 		<h1>{{data[1]}}</h1>
