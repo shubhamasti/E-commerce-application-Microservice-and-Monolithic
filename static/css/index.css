@@ -1,0 +1,43 @@
+/* Style for E-Commerce - Login */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEDDF;
+    color: #86615C;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.hero {
+    background-color: #0D1321;
+    color: #FFEDDF;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #FFEDDF;
+    background-color: #0D1321;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #C5D86D;
+}

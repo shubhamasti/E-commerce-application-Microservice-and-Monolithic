@@ -1,0 +1,98 @@
+/* Style for Your Cart */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEDDF;
+    color: #86615C;
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#logo {
+    width: 150px;
+    height: auto;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFEDDF;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #0D1321;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #AFE0CE;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#cartItems {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #0D1321;
+    text-align: center;
+}
+
+#tableItems {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #AFE0CE;
+}
+
+th {
+    background-color: #C5D86D;
+    color: #86615C;
+}
+
+tr:nth-child(even) {
+    background-color: #AFE0CE;
+}
+
+#seperator {
+    margin-top: 20px;
+}
+
+#total {
+    text-align: right;
+}
+
+#subtotal {
+    font-weight: bold;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}

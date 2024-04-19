@@ -2,11 +2,12 @@
 <html>
 <head>
 <title>Welcome</title>
+<link rel="stylesheet" type="text/css" href="static/css/home.css">
 </head>
 <body>
 <div id="title">
 	<a href="{{url_for('home')}}">
-		<img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" />
+		<img id="logo" src= "{{ url_for('static', filename='images/buy.png') }}" />
 	</a>
 	<form method="POST">
 		<input id="searchBox" type="text" name="searchQuery">

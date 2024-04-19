@@ -3,11 +3,149 @@
 <head>
 <title>Product Description</title>
 </head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEDDF;
+    color: #86615C;
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#logo {
+    width: 150px;
+    height: auto;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFEDDF;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #0D1321;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #AFE0CE;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#search {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#search h3 {
+    color: #0D1321;
+}
+
+#searchBox {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #C5D86D;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0D1321;
+    color: #FFEDDF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #86615C;
+}
+
+#display {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#productName h1 {
+    color: #0D1321;
+    text-align: center;
+}
+
+#productDescription {
+    margin-top: 20px;
+}
+
+#descriptionTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#descriptionTable td {
+    padding: 10px;
+    border-bottom: 1px solid #AFE0CE;
+}
+
+#descriptionTable td:first-child {
+    font-weight: bold;
+}
+
+#productDescription h2 {
+    color: #0D1321;
+}
+
+#addToCart {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #C5D86D;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0D1321;
+    color: #FFEDDF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #86615C;
+}
+
+</style>
 <body>
 
 <div id="title">
 	<a href="/">
-	<img id="logo" src= "{{ url_for('static', filename='images/logo.png') }}" />
+	<img id="logo" src= "{{ url_for('static', filename='images/logo_new.png') }}" />
 	</a>
 
 	<div class="dropdown">
