@@ -1,5 +1,4 @@
 /* Style for Welcome */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #FFEDDF;
@@ -21,6 +20,7 @@ body {
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-right: 20px; /* Adjust margin as needed */
 }
 
 .dropdown-content {
@@ -48,7 +48,7 @@ body {
 
 #kart {
     float: right;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .link {
@@ -57,8 +57,8 @@ body {
 }
 
 #cartIcon {
-    width: 30px;
-    height: auto;
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
 }
 
