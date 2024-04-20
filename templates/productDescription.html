@@ -144,8 +144,8 @@ input[type="submit"]:hover {
 <body>
 
 <div id="title">
-	<a href="/">
-	<img id="logo" src= "{{ url_for('static', filename='images/logo_new.png') }}" />
+	<a href="{{url_for('home')}}">
+        <img id="logo" src= "{{ url_for('static', filename='images/logo_new.png') }}" />
 	</a>
 
 	<div class="dropdown">
