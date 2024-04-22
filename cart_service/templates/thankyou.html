@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Welcome</title>
-<link rel="stylesheet" type="text/css" href="static/css/search.css">
+<link rel="stylesheet" type="text/css" href="static/css/thankyou.css">
 </head>
 <body>
 <div id="title">
@@ -14,14 +14,8 @@
 		<input id="searchButton" type="submit" value="Search">
 	</form>
 
-	<div class="dropdown">
-		<div class="dropdown-content">
-			<a href="{{ url_for('bills') }}">Your bills</a>
-			<hr>
-		</div>
-	</div>
 	<div id="kart">
-		<a class="link" href="/cart">
+		<a class="link" href="{{url_for('cart')}}">
 			<img src="{{url_for('static', filename='images/shoppingCart.png')}}" id="cartIcon" />
 			CART {{noOfItems}}
 		</a>
@@ -29,12 +23,8 @@
 </div>
 <div class="display">
 	<div class="displayCategory">
-		<h2>Top products in {{ search }}</h2>
-		<ul>
-			{% for row in products %}
-			<li><a href="{{ url_for('productDescription', prod_id=row[0]) }}">{{row[1]}}</a></li>
-			{% endfor %}
-		</ul>
+		<h2>Thank you for shopping with us! </h2>
+        <h4><a href="{{url_for('home')}}">Browse more</a></h4>
 	</div>
 </div>
 </body>

@@ -28,7 +28,7 @@
     <div class="dropdown">
         <button class="dropbtn">Bills</button>
         <div class="dropdown-content">
-            <a href="/bills">View Bills</a>
+            <a href="{{ url_for('bills') }}">View Bills</a>
             <img src="{{ url_for('static', filename='images/bill.png') }}" id="cartIcon" />
 			Your bills
         </div>
@@ -36,7 +36,7 @@
     <div class="dropdown">
         <button class="dropbtn">Cart</button>
         <div class="dropdown-content">
-            <a href="/cart">View Cart</a>
+            <a href="{{url_for('cart')}}">View Cart</a>
             <img src="{{ url_for('static', filename='images/shoppingCart.png') }}" id="cartIcon" />
 			CART {{ noOfItems }}
         </div>
