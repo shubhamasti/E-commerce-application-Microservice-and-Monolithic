@@ -11,11 +11,11 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
 # Install MySQL client
 RUN apt-get update && apt-get install -y default-mysql-client
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Initialize the MySQL database
 RUN mysql -h host.docker.internal -u root -proot1234 < database.sql
