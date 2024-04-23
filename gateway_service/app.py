@@ -12,6 +12,11 @@ cart_service_url = "http://0.0.0.0:8083"
 bill_service_url = "http://0.0.0.0:8084"
 
 
+@app.route('/index')
+def index():
+    return redirect(f"{auth_service_url}")
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     token = request.args.get('token')
@@ -23,7 +28,7 @@ def login():
         except jwt.InvalidTokenError:
             return "Invalid token. Please log in again."
     else:
-        return "No token provided", 400
+        return redirect(f"{auth_service_url}")
     
 
 @app.route('/add_cart', methods=['GET', 'POST'])
@@ -67,6 +72,14 @@ def checkout():
     else:
         return "No token provided", 400
 
+
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    token = request.args.get('token')
+    if token:
+        return redirect(f"{product_service_url}/home?token={token}")
+    else:
+        return redirect(f"{product_service_url}/login")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)

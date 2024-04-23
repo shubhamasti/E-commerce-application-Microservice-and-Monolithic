@@ -8,7 +8,10 @@ cursor = con.cursor()
 def clear_cart(email):
     cursor.execute('DELETE FROM cart_ecommerce.cart WHERE email = %s', (email,))
     con.commit()
-    
+
+def add_to_cart(email, prod_id, qty):
+    cursor.execute('INSERT INTO cart_ecommerce.cart VALUES (%s, %s, %s)', (email, prod_id, qty))
+    con.commit()
     
 def insert_bill(email, subtotal, tax, total):
     # get last bill no and current date

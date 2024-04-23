@@ -9,7 +9,6 @@ app.secret_key = 'your secret key'
 jwt_secret_key = "secret"
 
 gateway_url = "http://0.0.0.0:8080"
-auth_url = "http://0.0.0.0:8081"
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
@@ -32,40 +31,39 @@ def home():
 @app.route('/productDescription/<prod_id>', methods=['GET', 'POST'])
 def productDescription(prod_id):
     # user_data = request.user_data
-    email = session['email']
-    
     info = get_prod_details(prod_id)
     
     if request.method == 'POST':
+        email = session['email']
         if email:
             quantity = request.form['quantity']
             token = jwt.encode({'email': email, 'quantity': quantity, 'prod_id': prod_id}, \
                 jwt_secret_key, algorithm='HS256')
             return redirect(f"{gateway_url}/add_cart?token={token}")
         else:
-            return redirect(url_for('login'))
+            return redirect(f"{gateway_url}/index")
     
     return render_template('productDescription.html', data=info)
 
 
 @app.route('/bills', methods=['GET', 'POST'])
 def bills():
-    email = session.get('email')
+    email = session['email']
     if email:
         token = jwt.encode({'email': email}, jwt_secret_key, algorithm='HS256')
         return redirect(f"{gateway_url}/bills?token={token}")
     else:
-        return redirect(f"{auth_url}")
+        return redirect(f"{gateway_url}/index")
 
 
 @app.route('/cart', methods=['GET', 'POST'])
 def cart():
-    email = session.get('email')
+    email = session['email']
     if email:
         token = jwt.encode({'email': email}, jwt_secret_key, algorithm='HS256')
         return redirect(f"{gateway_url}/cart?token={token}")
     else:
-        return redirect(f"{auth_url}")
+        return redirect(f"{gateway_url}/index")
 
 
 if __name__ == "__main__":

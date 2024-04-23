@@ -9,9 +9,6 @@ app.secret_key = 'your secret key'
 jwt_secret_key = "secret"
 
 gateway_url = "http://0.0.0.0:8080"
-auth_service_url = "http://0.0.0.0:8081"
-product_service_url = "http://0.0.0.0:8082"
-bill_service_url = "http://0.0.0.0:8084"
 
 
 @app.route('/bills')
@@ -23,7 +20,7 @@ def bills():
         bills = get_bills(session['email'])
         return render_template('bills.html', bills=bills)
     else:
-        return redirect(f"{auth_service_url}/index")
+        return redirect(f"{gateway_url}/index")
     
 
 @app.route('/checkout', methods=['GET', 'POST'])
@@ -38,23 +35,23 @@ def checkout():
         total = data['total']
         
         if request.method == 'POST':
-            # clear cart
             insert_bill(email, subtotal, tax, total)
             clear_cart(email)
             return redirect(url_for('thankyou'))
     
         return render_template('checkout.html', account=email, costs=[subtotal, tax, total])
     else:
-        return redirect(f"{auth_service_url}/index")
+        return redirect(f"{gateway_url}/index")
 
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     email = session['email']
     if email:
-        return redirect(f"{product_service_url}/home")
+        token = jwt.encode({'email': email}, jwt_secret_key, algorithm='HS256')
+        return redirect(f"{gateway_url}/home?token={token}")
     else:
-        return redirect(f"{auth_service_url}")
+        return redirect(f"{gateway_url}/index")
 
 
 @app.route('/thankyou')

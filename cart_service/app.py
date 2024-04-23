@@ -9,23 +9,21 @@ app.secret_key = 'your secret key'
 jwt_secret_key = "secret"
 
 gateway_url = "http://0.0.0.0:8080"
-auth_service_url = "http://0.0.0.0:8081"
-product_service_url = "http://0.0.0.0:8082"
-bill_service_url = "http://0.0.0.0:8084"
-
 
 # Route for adding items to the cart
 @app.route('/add_cart', methods=['GET', 'POST'])
 def add_cart():
     try:
         token = request.args.get('token')
+        print(token)
         if token:
             payload = jwt.decode(token, jwt_secret_key, algorithms=['HS256'])
             session['email'] = payload['email']
             session['quantity'] = payload['quantity']
             session['prod_id'] = payload['prod_id']
+            print(session['email'], session['quantity'], session['prod_id'])
             add_to_cart(session['email'], session['prod_id'], session['quantity'])
-            return redirect(f"{product_service_url}/home")
+            return redirect(url_for('cart'))
         else:
             return 'Failed to add item to cart', 500
     except:
@@ -46,16 +44,17 @@ def cart():
         else:
             return render_template('cart.html', products=items, subtotal=subtotal)
     else:
-        return redirect(f"{auth_service_url}/index")
+        return redirect(f"{gateway_url}/index")
 
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    email = session.get('email')
+    email = session['email']
     if email:
-        return redirect(f"{product_service_url}/home")
+        token = jwt.encode({'email': email}, jwt_secret_key, algorithm='HS256')
+        return redirect(f"{gateway_url}/home?token={token}")
     else:
-        return redirect(f"{auth_service_url}")
+        return redirect(f"{gateway_url}/index")
 
 
 @app.route('/bills', methods=['GET', 'POST'])
@@ -66,7 +65,7 @@ def bills():
         session['email'] = payload['email']
         return redirect(f"{gateway_url}/bills?token={token}")
     else:
-        return redirect(f"{auth_service_url}")
+        return redirect(f"{gateway_url}/login")
     
     
 @app.route('/checkout', methods=['GET', 'POST'])
