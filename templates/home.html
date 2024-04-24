@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Welcome</title>
+<link rel="stylesheet" type="text/css" href="static/css/home.css">
+</head>
+
+<style>
+	.dropbtn{
+    background-color: #AFE0CE;
+    color: #0D1321;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+</style>
+<body>
+<div id="title">
+    <a href="{{url_for('home')}}">
+        <img id="logo" src="{{ url_for('static', filename='images/buy.png') }}" />
+    </a>
+    <form method="POST">
+        <input id="searchBox" type="text" name="searchQuery">
+        <input id="searchButton" type="submit" value="Search">
+    </form>
+	<br><br>
+    <div class="dropdown">
+        <button class="dropbtn">Bills</button>
+        <div class="dropdown-content">
+            <a href="/bills">View Bills</a>
+            <img src="{{ url_for('static', filename='images/bill.png') }}" id="cartIcon" />
+			Your bills
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Cart</button>
+        <div class="dropdown-content">
+            <a href="/cart">View Cart</a>
+            <img src="{{ url_for('static', filename='images/shoppingCart.png') }}" id="cartIcon" />
+			CART {{ noOfItems }}
+        </div>
+    </div>
+</div>
+<div class="display">
+    <div class="displayCategory">
+        <h2>Top products </h2>
+        <ul>
+            {% for row in top_prod %}
+            <li><a href="{{ url_for('productDescription', prod_id=row[0]) }}">{{ row[1] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* Style for Registration */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEDDF;
+    color: #86615C;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #AFE0CE;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+form p {
+    margin: 10px 0;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #C5D86D;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0D1321;
+    color: #FFEDDF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #86615C;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #0D1321;
+}

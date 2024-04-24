@@ -1,0 +1,86 @@
+/* Style for Welcome */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEDDF;
+    color: #86615C;
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#logo {
+    width: 150px;
+    height: auto;
+}
+
+#searchBox {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #C5D86D;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0D1321;
+    color: #FFEDDF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #86615C;
+}
+
+#kart {
+    float: right;
+    margin-top: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: #0D1321;
+}
+
+#cartIcon {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.display {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.displayCategory {
+    border: 1px solid #AFE0CE;
+    padding: 20px;
+}
+
+.displayCategory h2 {
+    color: #0D1321;
+    text-align: center;
+}
+
+.displayCategory h4 {
+    color: #0D1321;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.displayCategory h4 a {
+    color: #0D1321;
+    text-decoration: none;
+}
+
+.displayCategory h4 a:hover {
+    text-decoration: underline;
+}

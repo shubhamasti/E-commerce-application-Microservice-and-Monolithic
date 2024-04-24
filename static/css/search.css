@@ -1,0 +1,97 @@
+/* Style for Welcome */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEDDF;
+    color: #86615C;
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#logo {
+    width: 150px;
+    height: auto;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFEDDF;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #0D1321;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #AFE0CE;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#kart {
+    float: right;
+    margin-top: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: #0D1321;
+}
+
+#cartIcon {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.display {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.displayCategory {
+    border: 1px solid #AFE0CE;
+    padding: 20px;
+}
+
+.displayCategory h2 {
+    color: #0D1321;
+    text-align: center;
+}
+
+.displayCategory ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.displayCategory ul li {
+    margin-bottom: 10px;
+}
+
+.displayCategory ul li a {
+    color: #0D1321;
+    text-decoration: none;
+}
+
+.displayCategory ul li a:hover {
+    text-decoration: underline;
+}

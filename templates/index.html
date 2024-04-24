@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <title>E-Commerce &mdash; Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="static/css/index.css">
+        <!-- MAIN CSS -->
+        {% endblock %}
+      </head>
+        <body>
+            <div class="hero">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-10">
+        
+                            <div class="row mb-5">
+                                <div class="col-lg-7 intro">
+                                    <h1><strong>Buy your favourite products</strong> with us.</h1>
+                                </div>
+                            </div>
+        
+                            <!-- buttons for register and login-->
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <a href="{{url_for('register')}}" class="btn btn-primary btn-block font-size-15">Register</a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a href="{{url_for('login')}}" class="btn btn-primary btn-block font-size-15">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+</html>
