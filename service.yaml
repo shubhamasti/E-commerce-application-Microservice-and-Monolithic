@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: authservice
+spec:
+  selector:
+    app: authservice
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8081
+  type: LoadBalancer
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: billservice
+spec:
+  selector:
+    app: billservice
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8084
+  type: LoadBalancer
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cartservice
+spec:
+  selector:
+    app: cartservice
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8083
+  type: LoadBalancer
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: gatewayservice
+spec:
+  selector:
+    app: gatewayservice
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: productservice
+spec:
+  selector:
+    app: productservice
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8082
+  type: LoadBalancer

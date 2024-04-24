@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authservice
+  template:
+    metadata:
+      labels:
+        app: authservice
+    spec:
+      containers:
+      - name: authservice
+        image: shubhapes589/authservice:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: billservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: billservice
+  template:
+    metadata:
+      labels:
+        app: billservice
+    spec:
+      containers:
+      - name: billservice
+        image: shubhapes589/billservice:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8084
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cartservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cartservice
+  template:
+    metadata:
+      labels:
+        app: cartservice
+    spec:
+      containers:
+      - name: cartservice
+        image: shubhapes589/cartservice:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8083
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gatewayservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gatewayservice
+  template:
+    metadata:
+      labels:
+        app: gatewayservice
+    spec:
+      containers:
+      - name: gatewayservice
+        image: shubhapes589/gatewayservice:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productservice
+  template:
+    metadata:
+      labels:
+        app: productservice
+    spec:
+      containers:
+      - name: productservice
+        image: shubhapes589/productservice:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8082

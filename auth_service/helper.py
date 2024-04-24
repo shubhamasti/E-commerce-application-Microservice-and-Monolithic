@@ -1,6 +1,6 @@
 import mysql.connector as m
 
-con = m.connect(host = "host.docker.internal", user = "root", password = "root1234",
+con = m.connect(host = "host.docker.internal", user = "root", password = "####",
                 database = "user_auth_ecommerce")
 cursor = con.cursor()
 

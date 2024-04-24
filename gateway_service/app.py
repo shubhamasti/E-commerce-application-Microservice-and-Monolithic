@@ -61,13 +61,6 @@ def bills():
 def checkout():
     token = request.args.get('token')
     if token:
-        data = jwt.decode(token, jwt_secret_key, algorithms=['HS256'])
-        email = data['email']
-        subtotal = data['subtotal']
-        tax = data['tax']
-        total = data['total']
-        token = jwt.encode({'email': email, 'subtotal': subtotal, 'tax': tax, 'total': total}, \
-            jwt_secret_key, algorithm='HS256')
         return redirect(f"{bill_service_url}/checkout?token={token}")
     else:
         return "No token provided", 400

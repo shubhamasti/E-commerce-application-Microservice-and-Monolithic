@@ -15,13 +15,11 @@ gateway_url = "http://0.0.0.0:8080"
 def add_cart():
     try:
         token = request.args.get('token')
-        print(token)
         if token:
             payload = jwt.decode(token, jwt_secret_key, algorithms=['HS256'])
             session['email'] = payload['email']
             session['quantity'] = payload['quantity']
             session['prod_id'] = payload['prod_id']
-            print(session['email'], session['quantity'], session['prod_id'])
             add_to_cart(session['email'], session['prod_id'], session['quantity'])
             return redirect(url_for('cart'))
         else:
@@ -34,15 +32,15 @@ def add_cart():
 @app.route('/cart', methods=['GET', 'POST'])
 def cart():
     if 'email' in session:
-        email = session['email']
-        items = get_cart_items(email)
+        items = get_cart_items(session['email'])
         subtotal = round(sum([item[-1] for item in items]), 2)
         
         if request.method == 'POST':
-            token = jwt.encode({'email': email, 'subtotal': subtotal}, jwt_secret_key, algorithm='HS256')
+            print('post')
+            token = jwt.encode({'email': session['email'], 'subtotal': subtotal}, jwt_secret_key, algorithm='HS256')
             return redirect(f"{gateway_url}/checkout?token={token}")
-        else:
-            return render_template('cart.html', products=items, subtotal=subtotal)
+        print('get')
+        return render_template('cart.html', products=items, subtotal=subtotal)
     else:
         return redirect(f"{gateway_url}/index")
 

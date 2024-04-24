@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  authservice:
+    image: shubhapes589/authservice:1.0
+    ports:
+      - "8081:8081"
+
+  billservice:
+    image: shubhapes589/billservice:1.0
+    ports:
+      - "8084:8084"
+
+  cartservice:
+    image: shubhapes589/cartservice:1.0
+    ports:
+      - "8083:8083"
+
+  gatewayservice:
+    image: shubhapes589/gatewayservice:1.0
+    ports:
+      - "8080:8080"
+
+  productservice:
+    image: shubhapes589/productservice:1.0
+    ports:
+      - "8082:8082"
