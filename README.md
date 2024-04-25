@@ -1,4 +1,15 @@
 ## Microservice E-commerece application
+Python-flask application using mysql.
+
+### Features
+1. Login/Register page (authorization)
+2. Product browsing
+3. Cart page
+4. Checkout page
+5. View billing history
+
+### Requirements
+Docker and Kuberenetes
 
 ## How to run
 Make sure to change mysql password
