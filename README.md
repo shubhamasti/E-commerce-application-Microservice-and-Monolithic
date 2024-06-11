@@ -1,4 +1,4 @@
-## Microservice E-commerece application
+## Microservice E-commerce application
 Python-flask application using mysql.
 
 ### Features
